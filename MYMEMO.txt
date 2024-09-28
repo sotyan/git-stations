@@ -31,10 +31,35 @@
     git branch {マージ先のブランチ名}
 ・マージ元のブランチを指定
     git merge {マージ元のブランチ名}
-・
+・git checkout main
+・git pull
 
 スタッシュ（変更内容をコミットせず（履歴に残さない）に一時的に保存しておきたい）
     git stash
     git stash list
     git stash apply(戻す)
-    git stash drop(stashを削除)
+    git stash 
+
+コンフリクトの解消
+    git statusでコンフリクトしたファイルを発見、手動で直す
+    git add . 全てのファイルをステージに、この後はコミットしてプッシュしてマージ
+    
+ログ
+    git log --oneline --graph --all
+
+差分
+    git diff コミット１ コミット２
+    コミットのハッシュ値は、git logで確認する
+
+リベース（mainブランチの派生のfeatureブランチがある。featureブランチの変更中にmainブランチが進んだため、そのmainブランチからfeatureブランチを派生させたい）
+・あらかじめ、リベースしたいブランチに移動、リモートレポジトリの最新のデータを取得しておく
+    git rebase origin/main
+    コンフリクトが発生した場合、コンフリクトを解消して
+    git add .
+    git rebase --continue（コミット内容が変わっていたら変更する）
+
+タグ
+    タグ付けしたいレポジトリにいどう（main）
+    git tag タグの名前
+    git tag （作成済みのタグを一覧で確認できる）
+    git push リモート名 タグの名前 （コミットと同様に、タグをリモートレポジトリに反映）

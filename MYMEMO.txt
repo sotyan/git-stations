@@ -33,3 +33,8 @@
     git merge {マージ元のブランチ名}
 ・
 
+スタッシュ（変更内容をコミットせず（履歴に残さない）に一時的に保存しておきたい）
+    git stash
+    git stash list
+    git stash apply(戻す)
+    git stash drop(stashを削除)
